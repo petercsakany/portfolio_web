@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/widgets/body.dart';
+import 'package:portfolio_web/widgets/button_row.dart';
 import 'package:portfolio_web/widgets/contact_button.dart';
 
 class Portfolio extends StatelessWidget {
@@ -10,14 +12,13 @@ class Portfolio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white10,
+        backgroundColor: Colors.white,
         title: Row(
-          children: const [
+          children: [
             CircleAvatar(
               radius: 28,
               backgroundColor: Colors.yellowAccent,
-              foregroundImage: NetworkImage('https://picsum.photos/200'),
+              foregroundImage: AssetImage('images/profile_pic1.jpg'),
             ),
             Padding(
               padding: EdgeInsets.all(8.0),
@@ -38,6 +39,15 @@ class Portfolio extends StatelessWidget {
             buttonText: 'Contact me',
             icon: Icon(Icons.send_sharp),
             onPressed: () {},
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          Body(),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ButtonRow(),
           ),
         ],
       ),

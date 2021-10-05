@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/utils/util.dart';
 
 import 'contact_button.dart';
 
@@ -67,9 +68,10 @@ class Body extends StatelessWidget {
                                 ),
                               ),
                               ContactButton(
-                                  buttonText: 'Drop me a line',
-                                  icon: Icon(Icons.mail_outline),
-                                  onPressed: () {}),
+                                buttonText: 'Drop me a line',
+                                icon: Icon(Icons.mail_outline),
+                                onPressed: () => launchMailto(),
+                              ),
                             ],
                           ),
                         ),
@@ -101,29 +103,26 @@ class Body extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: projectsList.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      child: Column(
-                        children: [
-                          Card(
-                            elevation: 3,
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  leading: Icon(Icons.work),
-                                  title: Text(projectsList[index]['title']),
-                                  subtitle:
-                                      Text(projectsList[index]['subtitle']),
-                                ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  child: Image.network(
-                                      projectsList[index]['image']),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                    return Column(
+                      children: [
+                        Card(
+                          elevation: 3,
+                          child: Column(
+                            children: [
+                              ListTile(
+                                leading: Icon(Icons.work),
+                                title: Text(projectsList[index]['title']),
+                                subtitle: Text(projectsList[index]['subtitle']),
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                child:
+                                    Image.network(projectsList[index]['image']),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     );
                   },
                 ),

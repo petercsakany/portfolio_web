@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/utils/util.dart';
 import 'package:portfolio_web/widgets/body.dart';
 import 'package:portfolio_web/widgets/button_row.dart';
 import 'package:portfolio_web/widgets/contact_button.dart';
@@ -38,7 +39,7 @@ class Portfolio extends StatelessWidget {
           ContactButton(
             buttonText: 'Contact me',
             icon: Icon(Icons.send_sharp),
-            onPressed: () {},
+            onPressed: () => launchMailto(),
           ),
         ],
       ),
